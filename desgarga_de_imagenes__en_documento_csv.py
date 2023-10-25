@@ -2,36 +2,35 @@ import pandas as pd
 import requests
 from io import BytesIO
 from PIL import Image
+import os
 
-# Imagina que nuestro cuento comienza abriendo un misterioso documento llamado "datos.csv"
-print("Había una vez un misterioso documento llamado 'datos.csv'...")
+# Ruta al archivo CSV
+archivo_csv = 'datos.csv'
 
-# Abrimos el documento .csv usando pandas
-try:
-    df = pd.read_csv('datos.csv')
-    print("El documento se abrió mágicamente.")
-except FileNotFoundError:
-    print("Oh no! El documento no se encontró. El cuento termina tristemente.")
-except pd.errors.EmptyDataError:
-    print("¡El documento está vacío! Parece que la magia no está funcionando aquí.")
-else:
-    # Ahora, exploramos el contenido de este mágico documento
-    print("Dentro del documento, encontramos columnas mágicas: ", df.columns.tolist())
+# Verificar si el archivo CSV existe
+if os.path.exists(archivo_csv):
+    # Leer el archivo CSV usando pandas
+    df = pd.read_csv(archivo_csv)
 
-    # Imaginemos que cada columna contiene el enlace a una imagen
+    # Iterar a través de las columnas del DataFrame
     for columna in df.columns:
-        print(f"Exploramos la columna mágica '{columna}'...")
-        try:
-            # Descargamos y mostramos las imágenes mágicas
-            for enlace in df[columna]:
+        # Iterar a través de las filas de la columna actual
+        for enlace in df[columna]:
+            try:
+                # Descargar la imagen desde la URL
                 response = requests.get(enlace)
                 if response.status_code == 200:
+                    # Abrir la imagen utilizando Pillow (PIL)
                     imagen = Image.open(BytesIO(response.content))
-                    imagen.show()
-                    print("¡Hemos descargado y mostrado una imagen mágica!")
-                else:
-                    print(f"¡Oh no! No pudimos descargar la imagen del enlace: {enlace}")
-        except KeyError:
-            print(f"¡Oops! La columna '{columna}' no fue encontrada en este documento mágico.")
 
-    print("Fin del cuento. ¡Espero que hayas disfrutado el viaje mágico a través del documento .csv!")
+                    # Mostrar o guardar la imagen (aquí está el lugar para personalizar)
+                    imagen.show()  # Esto mostrará la imagen
+                    # imagen.save('nombre_de_archivo.jpg')  # Esto guardará la imagen
+
+                    print(f"Imagen descargada desde {enlace}")
+                else:
+                    print(f"No se pudo descargar la imagen desde {enlace}")
+            except Exception as e:
+                print(f"Error al procesar la URL {enlace}: {str(e)}")
+else:
+    print(f"El archivo {archivo_csv} no existe.")
