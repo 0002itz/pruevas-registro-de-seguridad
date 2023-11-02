@@ -1,11 +1,11 @@
-import pandas as pd
-import requests
 from io import BytesIO
 from PIL import Image
 import os
+import pandas as pd
+import requests
 
 # Ruta al archivo CSV
-archivo_csv = 'datos.csv'
+archivo_csv = "C:/Users/rodri/OneDrive/Documentos/Playgraund/pruevas registro de seguridad/registro_de_entrada.csv"
 
 # Verificar si el archivo CSV existe
 if os.path.exists(archivo_csv):
