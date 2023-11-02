@@ -1,20 +1,15 @@
 import pandas as pd
-import pyexcel as pe
+from pyexcel_ods import get_data
 
 # Ruta al archivo .ods
-archivo_ods = 'datos.ods'
+archivo_ods = 'C:/Users/rodri/OneDrive/Documentos/Playgraund/pruevas registro de seguridad/Registro_de_seguridad.ods'
 
-# Leer el archivo .ods usando pyexcel-ods 
-datos = pe.get_array(file_name=archivo_ods)
-
-# Convertir los datos a un DataFrame de pandas
-columnas = datos[0]
-filas = datos[1:]
-df = pd.DataFrame(filas, columns=columnas)
+# Leer el archivo .ods
+datos = get_data(archivo_ods)
 
 # Obtener las URLs de las columnas 8 y 11 en la fila 2
-url_columna_8 = df.at[1, 'Columna8']  # Reemplaza 'Columna8' con el nombre real de tu columna 8
-url_columna_11 = df.at[1, 'Columna11']  # Reemplaza 'Columna11' con el nombre real de tu columna 11
+url_columna_8 = datos['Hoja 1'][1][8]  # Reemplaza 'Sheet1' con el nombre real de tu hoja y ajusta los índices según tu archivo
+url_columna_11 = datos['Hoja 1'][1][11]  # Reemplaza 'Sheet1' con el nombre real de tu hoja y ajusta los índices según tu archivo
 
 # Verificar y trabajar con las URLs si son válidas
 if isinstance(url_columna_8, str) and url_columna_8.startswith(('http://', 'https://')) and url_columna_8.lower().endswith(('.jpg', '.jpeg', '.png', '.gif')):
