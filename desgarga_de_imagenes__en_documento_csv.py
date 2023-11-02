@@ -1,36 +1,38 @@
 from io import BytesIO
-from PIL import Image
 import os
+from PIL import Image
 import pandas as pd
 import requests
 
 # Ruta al archivo CSV
-archivo_csv = "C:/Users/rodri/OneDrive/Documentos/Playgraund/pruevas registro de seguridad/registro_de_entrada.csv"
+archivo_csv = 'C:/Users/rodri/OneDrive/Documentos/Playgraund/pruevas registro de seguridad/Registro de seguridad - Hoja 1.csv'
 
 # Verificar si el archivo CSV existe
 if os.path.exists(archivo_csv):
     # Leer el archivo CSV usando pandas
     df = pd.read_csv(archivo_csv)
 
-    # Iterar a través de las columnas del DataFrame
-    for columna in df.columns:
-        # Iterar a través de las filas de la columna actual
-        for enlace in df[columna]:
-            try:
-                # Descargar la imagen desde la URL
-                response = requests.get(enlace)
-                if response.status_code == 200:
-                    # Abrir la imagen utilizando Pillow (PIL)
-                    imagen = Image.open(BytesIO(response.content))
+    try:
+        # Obtener las URLs de la octava y undécima columna de la fila 2
+        octava_columna_url = df.iloc[1, 8]  # Octava columna, fila 2
+        onceava_columna_url = df.iloc[1, 11]  # Onceava columna, fila 2
 
-                    # Mostrar o guardar la imagen (aquí está el lugar para personalizar)
-                    imagen.show()  # Esto mostrará la imagen
-                    # imagen.save('nombre_de_archivo.jpg')  # Esto guardará la imagen
+        # Descargar las imágenes desde las URLs especificadas
+        response_octava = requests.get(octava_columna_url)
+        response_onceava = requests.get(onceava_columna_url)
 
-                    print(f"Imagen descargada desde {enlace}")
-                else:
-                    print(f"No se pudo descargar la imagen desde {enlace}")
-            except Exception as e:
-                print(f"Error al procesar la URL {enlace}: {str(e)}")
+        if response_octava.status_code == 200:
+            imagen_octava = Image.open(BytesIO(response_octava.content))
+            imagen_octava.save('octava_columna.jpg')
+            print(f"Imagen de la octava columna descargada desde {octava_columna_url}")
+
+        if response_onceava.status_code == 200:
+            imagen_onceava = Image.open(BytesIO(response_onceava.content))
+            imagen_onceava.save('onceava_columna.jpg')
+            print(f"Imagen de la onceava columna descargada desde {onceava_columna_url}")
+
+    except Exception as e:
+        print(f"Error al descargar las imágenes: {str(e)}")
+
 else:
     print(f"El archivo {archivo_csv} no existe.")
