@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-21T21:44:28.260Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0" etag="56pQ8C-h6-k5OdcTCna8" version="22.1.3" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-21T22:10:48.550Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0" etag="SHL8ysEbrY2YcxmNRmh1" version="22.1.3" type="github">
   <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="Page-1">
     <mxGraphModel dx="1386" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
@@ -246,7 +246,7 @@
         <mxCell id="Me9rw0PBnoy9kFACl-yl-2274" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=24;align=center;opacity=60;arcSize=27;fillColor=#d5e8d4;strokeColor=#82b366;gradientColor=#97d077;" parent="1" vertex="1">
           <mxGeometry x="678.75" y="638" width="137.5" height="143" as="geometry" />
         </mxCell>
-        <mxCell id="Me9rw0PBnoy9kFACl-yl-2277" value="&lt;font style=&quot;font-size: 18px;&quot; color=&quot;#23445d&quot;&gt;Modem: 1&lt;br&gt;Router: 1&lt;br&gt;Switch Poe: 8/5&lt;br&gt;Access point(wifi): 2&lt;br&gt;DVR: 8/5&lt;br&gt;PC:2&lt;br&gt;Tabletas: 3&lt;br&gt;Monitores: 2&lt;br&gt;Ratones: 2&lt;br&gt;Teclado: 1&lt;br&gt;Servidor:1&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#742B21;align=center;fontStyle=1;strokeWidth=14;" parent="1" vertex="1">
+        <mxCell id="Me9rw0PBnoy9kFACl-yl-2277" value="&lt;font style=&quot;font-size: 18px;&quot; color=&quot;#23445d&quot;&gt;Modem: 1&lt;br&gt;Router: 1&lt;br&gt;Switch Poe: 8/5&lt;br&gt;Access point(wifi): 2&lt;br&gt;DVR: 8/5&lt;br&gt;PC:&lt;br&gt;Tabletas: 3&lt;br&gt;Monitores: 2&lt;br&gt;Ratones: 2&lt;br&gt;Teclado: 1&lt;br&gt;Servidor:1&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#742B21;align=center;fontStyle=1;strokeWidth=14;" parent="1" vertex="1">
           <mxGeometry x="85" y="240" width="200" height="45" as="geometry" />
         </mxCell>
         <mxCell id="Me9rw0PBnoy9kFACl-yl-2278" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="Me9rw0PBnoy9kFACl-yl-2277" target="Me9rw0PBnoy9kFACl-yl-2277" edge="1">
